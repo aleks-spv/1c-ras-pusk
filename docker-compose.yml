@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  pusk:
+    build:
+      context: src/pusk/
+    container_name: pusk
+    ports:
+      - 8181:8181
+    volumes:
+      - ./src/data/application.properties:/opt/pusk/data/application.properties
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
